@@ -10,6 +10,7 @@ import {
   ScrollRestoration,
   useRouteLoaderData,
 } from 'react-router';
+import {Analytics as VercelAnalytics} from '@vercel/analytics/react';
 import type {Route} from './+types/root';
 import favicon from '~/assets/favicon.svg';
 import {FOOTER_QUERY, HEADER_QUERY} from '~/lib/fragments';
@@ -158,6 +159,7 @@ export function Layout({children}: {children?: React.ReactNode}) {
         {children}
         <ScrollRestoration nonce={nonce} />
         <Scripts nonce={nonce} />
+        <VercelAnalytics />
       </body>
     </html>
   );
